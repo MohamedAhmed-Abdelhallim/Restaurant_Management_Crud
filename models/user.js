@@ -2,10 +2,11 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
+    // userId:{type:String,unique:true,required:true},
     username: { type: String, unique: true, minLength: 3, required: true },
     password: { type: String, required: true },
-    email:{ type: String, unique: true}
-    // refreshToken: { type: "string", default: null },
+    email:{ type: String, unique: true},
+    // myRestaurants:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Restaurant' }]
 })
 
 userSchema.pre('save', function (next) {
